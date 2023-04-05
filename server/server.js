@@ -1,8 +1,12 @@
+// requiring the express to be in this file
 const express = require('express');
-
+// initiating the express library
 const app = express();
+// the spot we want it to run on
 const PORT = 5000;
 
+// list of artist objects with properties to be 
+// used as data for a function
 const artistListArray = [
     {
         name: 'Miles Davis',
@@ -26,6 +30,9 @@ const artistListArray = [
     },
 ];
 
+
+// list of song objects with properties to be used
+// as data for a function 
 const songListArray = [
     {
         title: 'Take Five',
@@ -45,8 +52,12 @@ const songListArray = [
     },
 ];
 
+//teaching our server where to get our front end files
+// ie html,css,js,etc
 app.use(express.static('server/public'));
 
+//teaching are server to take in http request and send back
+// the artistListArray
 app.get('/artist', (req, res) => {
     res.send(artistListArray);
 });
